@@ -2,21 +2,28 @@
 var message = prompt("Введите ваш номер телефона:")
 var isError = false
 var isOk = true
-console.log()
+if(message.length < 1){
+    console.log(`error`)
+    alert(`Поле не должно быть пустым`)
+    isError = true
+    isOk = false
+}
 if (message[0] < 43 || message[0] > 43) {
         console.log(`error`)
         alert('Номер телефона должен начинаться на +')
         isError = true
         isOk = false
     }
-for (var char of message.slice(1)) {
-    var code = char.charCodeAt()
     if (message.length < 13 || message.length > 13) {
         console.log(`error`)
         alert('Номер телефона должен быть длиной 13 символов')
         isError = true
         isOk = false
+        
     }
+for (var char of message.slice(1)) {
+    var code = char.charCodeAt()
+    
     if (code < 48 || code > 57) {
         console.log(`error`)
         alert('Номер телефона должен состоять только из цифр')
